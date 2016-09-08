@@ -1,0 +1,109 @@
+
+
+.a-header {
+    background-color: $alpha-background;
+    min-height: $sizer * 8;
+
+    .inner-header {
+        @include mq($bp3) {
+            padding-top: $sizer;
+        }
+
+        padding-top: $sizer * 4;
+        position: relative;
+    }
+
+    .a-header__wrapper {
+
+        a {
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+
+        // user avatar mobile
+        .left {
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 0;
+        }
+    }
+
+    .extra-content-link-wrapper {
+        display: block;
+        margin-bottom: $sizer;
+        text-align: left;
+    }
+}
+
+@include respond-to("desktop") {
+
+    .a-header-fancy {
+        background-color: $white;
+        border-bottom: $line-th solid $line;
+
+        .inner-header {
+            padding-top: $sizer * 2;
+        }
+
+        .a-header__wrapper {
+            background: $white;
+            margin: 0 auto;
+            max-width: $sizer * 30;
+            min-height: $sizer * 10;
+            padding: $sizer $sizer 0;
+            position: relative;
+            text-align: center;
+
+            &:before, &:after {
+                border-top: 14px solid rgba(0, 0, 0, .2);
+                content: "";
+                position: absolute;
+                top: $sizer * 6;
+            }
+
+            &:before {
+                left: -$sizer / 4;
+                border-left: 6px solid transparent;
+            }
+
+            &:after {
+                border-right: 6px solid transparent;
+                right: -$sizer / 4;
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            .left {
+                float: left;
+                margin-right: $sizer;
+            }
+
+            .right {
+                float: left;
+            }
+        }
+
+        .extra-content-link-wrapper {
+            position: absolute;
+            top: 9.25 * $sizer;
+        }
+
+        &:before {
+            background: $alpha-background;
+            content: "";
+            display: block;
+            height: $sizer * 8;
+            left: 0;
+            margin-top: $sizer * 2;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+    }
+}

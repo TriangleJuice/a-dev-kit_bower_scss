@@ -1,0 +1,47 @@
+$footer-height: $sizer * 2;
+
+.a-footer {
+    align-items: center;
+    background: $black;
+    clear: both;
+    color: $line;
+    display: flex;
+    flex-direction: column;
+    height: $footer-height;
+    justify-content: center;
+    padding: $sizer / 3 $footer-height;
+    position: relative;
+    text-align: center;
+
+    a,
+    span {
+        @include text-dimensions(-1, .55);
+    }
+
+    a {
+        color: $line;
+        text-decoration: underline;
+
+        &:hover, &:focus {
+            color: $white;
+            text-decoration: none;
+        }
+    }
+
+    span {
+        @include respond-to("tablet") {
+            display: inline;
+        }
+
+        display: block;
+    }
+
+    .button {
+        color: $white;
+        margin: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: auto;
+    }
+}

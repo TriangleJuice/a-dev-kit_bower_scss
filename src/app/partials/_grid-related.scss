@@ -1,0 +1,68 @@
+.inner {
+    @include clearfix();
+    margin: 0 $sizer;
+    max-width: $max-width;
+
+    @include respond-to("tablet") {
+        margin: 0 $sizer 0 0;
+        padding-left: $sizer * 3.5;
+    }
+
+    @include respond-to("desktop") {
+        padding-left: $sizer * 5;
+    }
+
+    @include mq($bp5) {
+        margin: 0 auto;
+    }
+
+    @include mq($bp7) {
+        padding-left: 0;
+    }
+}
+
+.partial-bg-container {
+    .partial-bg {
+        &:first-child {
+            background: $white;
+        }
+
+        &:last-child {
+            background: $beta-background;
+            position: relative;
+
+            &:before {
+                background: $beta-background;
+                bottom: 0;
+                content: "";
+                display: block;
+                left: -$sizer;
+                right: -$sizer;
+                position: absolute;
+                top: 0;
+                z-index: -1;
+            }
+        }
+    }
+
+    @include respond-to("tablet") {
+        background: linear-gradient(90deg, $white 50%, $beta-background 50%);
+
+        .inner {
+            display: flex;
+        }
+
+        .partial-bg {
+            flex: 1 1 auto;
+            margin-right: 0;
+
+            &:last-child {
+                padding-left: $sizer;
+
+                &:before {
+                    content: none;
+                }
+            }
+        }
+    }
+}

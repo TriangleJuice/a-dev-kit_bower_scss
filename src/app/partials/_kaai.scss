@@ -1,0 +1,69 @@
+$header-height: $sizer * 2;
+$logo-height: $sizer * 4;
+
+.a-kaai {
+    background-color: $white;
+    border-bottom: $line-th solid $line;
+    box-sizing: content-box;
+    display: block;
+    height: $header-height;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 5000;
+
+    .logo-wrapper {
+        @include clearfix();
+        margin: 0;
+        position: absolute;
+        top: $header-height;
+        width: 60px;
+        z-index: 5001;
+
+        @include respond-to("desktop") {
+            width: $logo-height;
+        }
+
+        img {
+            height: 60px;
+            display: block;
+
+            @include respond-to("desktop") {
+                height: $logo-height;
+            }
+        }
+    }
+
+    .kaai-outer-container {
+        box-sizing: border-box;
+        position: relative;
+    }
+
+    .quick-menu {
+        float: right;
+
+        .button {
+            margin: 0;
+        }
+    }
+
+    .quick-menu-item {
+        border-right: $line-th * 2 solid shade($alpha-ui-color, 20%);
+    }
+
+    .has-icon {
+        padding-right: 0;
+
+        & > span:not(.fa):not(.badge) {
+            display: none;
+        }
+
+        @include respond-to("tablet") {
+            padding-right: $sizer;
+
+            & > span:not(.fa):not(.badge) {
+                display: block;
+            }
+        }
+    }
+}
