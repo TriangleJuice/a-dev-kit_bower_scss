@@ -1,22 +1,22 @@
-
-
 .a-header {
     background-color: $alpha-background;
     min-height: $sizer * 8;
 
     .inner-header {
+        padding-top: $sizer * 3;
+        position: relative;
+
         @include mq($bp3) {
             padding-top: $sizer;
         }
 
-        padding-top: $sizer * 4;
-        position: relative;
+        @include mq($bp4) {
+            padding-top: $sizer * 4;
+        }
     }
 
     .a-header__wrapper {
-
         a {
-
             &:last-child {
                 margin-right: 0;
             }
@@ -37,6 +37,71 @@
         margin-bottom: $sizer;
         text-align: left;
     }
+
+    .tabs {
+        @include nav();
+        @include list-unstyled();
+        margin-bottom: $sizer;
+
+        @include respond-to("desktop") {
+            bottom: 0;
+            left: 0;
+            margin-bottom: 0;
+            position: absolute;
+            right: 0;
+        }
+    }
+
+    .tabs-list {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        @include respond-to("tablet") {
+            flex-direction: row;
+        }
+
+        li {
+            margin-bottom: -1px;
+            padding: 0;
+
+            @include respond-to("tablet") {
+                margin-right: -1px;
+            }
+
+            @include respond-to("desktop") {
+                align-self: flex-end;
+            }
+        }
+
+        a {
+            @include transition(background-color .2s ease-out, padding .2s ease-out);
+            background: $alpha-background;
+            border: $line-th solid $line;
+            color: $alpha-font-color;
+            display: block;
+            padding: $sizer / 4 $sizer;
+            text-align: center;
+            text-decoration: none;
+
+            &:hover,
+            &:active
+            &:visited {
+                &:not(.active) {
+                    text-decoration: underline;
+                }
+            }
+
+            &.active {
+                background: $white;
+                font-weight: 700;
+
+                @include respond-to("desktop") {
+                    padding: $sizer / 2 $sizer;
+                }
+            }
+        }
+    }
 }
 
 @include respond-to("desktop") {
@@ -51,28 +116,29 @@
 
         .a-header__wrapper {
             background: $white;
+            height: 100%;
             margin: 0 auto;
-            max-width: $sizer * 30;
+            max-width: $sizer * 24;
             min-height: $sizer * 10;
             padding: $sizer $sizer 0;
             position: relative;
             text-align: center;
 
             &:before, &:after {
-                border-top: 14px solid rgba(0, 0, 0, .2);
                 content: "";
                 position: absolute;
                 top: $sizer * 6;
+                border-top: 14px solid rgba(0, 0, 0, .2);
             }
 
             &:before {
-                left: -$sizer / 4;
+                @include rem-dimensions("left", -6);
                 border-left: 6px solid transparent;
             }
 
             &:after {
+                @include rem-dimensions("right", -6);
                 border-right: 6px solid transparent;
-                right: -$sizer / 4;
             }
 
             &:last-child {
@@ -90,20 +156,20 @@
         }
 
         .extra-content-link-wrapper {
+            @include rem-dimensions("top", 222);
             position: absolute;
-            top: 9.25 * $sizer;
         }
 
         &:before {
-            background: $alpha-background;
             content: "";
             display: block;
-            height: $sizer * 8;
-            left: 0;
-            margin-top: $sizer * 2;
             position: absolute;
-            right: 0;
             top: 0;
+            left: 0;
+            right: 0;
+            height: $sizer * 8;
+            background: $alpha-background;
+            margin-top: $sizer * 2;
         }
     }
 }
