@@ -12,12 +12,16 @@
 .app {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
   padding-top: $sizer * 2;
 }
 
 main {
-    flex: 1 0 auto;
+  @include respond-to("tablet") {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+  }
 }
 
 .browsehappy {
