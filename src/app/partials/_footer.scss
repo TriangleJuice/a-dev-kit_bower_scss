@@ -7,6 +7,7 @@ $footer-height: $sizer * 2;
     color: $line;
     display: flex;
     flex-direction: column;
+    flex-shrink: 0;
     height: $footer-height;
     justify-content: center;
     padding: $sizer / 3 $footer-height;

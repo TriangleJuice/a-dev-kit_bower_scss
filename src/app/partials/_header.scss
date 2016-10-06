@@ -1,5 +1,6 @@
 .a-header {
     background-color: $alpha-background;
+    flex-shrink: 0;
     min-height: $sizer * 8;
 
     .inner-header {
