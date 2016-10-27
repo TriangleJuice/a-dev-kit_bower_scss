@@ -2,6 +2,7 @@
     @include clearfix();
     margin: 0 $sizer;
     max-width: $max-width;
+    width: 100%;
 
     @include respond-to("tablet") {
         margin: 0 $sizer 0 0;
