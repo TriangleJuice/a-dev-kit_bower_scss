@@ -1,4 +1,4 @@
-<div class="skeleton">
+<div class="skeleton" ng-controller="MainController as vm">
     <div class="app">
 
         <!-- begin COMPONENT kaai -->
@@ -68,11 +68,11 @@
 
 
 
-        <!-- begin COMPONENT header -->
+        <!-- begin COMPONENT footer -->
         <footer class="a-footer">
 
             <div>
-                <span>&copy; {{currentYear}} Antwerpen.be | </span>
+                <span>&copy; {{vm.creationDate|date:'y'}} Antwerpen.be | </span>
                 <a href="#">Privacy &amp; gebruiksvoorwaarden</a>
             </div>
 
